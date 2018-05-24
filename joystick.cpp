@@ -1,5 +1,4 @@
 #include "joystick.h"
-//#include <Console.h>
 
 Joystick::Joystick(byte v, byte h, byte b):
   _vertical(v),
@@ -16,11 +15,6 @@ JoystickDirection Joystick::getDirection()
 {
   const int x = analogRead(_horizontal);
   const int y = analogRead(_vertical);
-//  Serial.print(x);
-//  Serial.print(';');
-//  Serial.print(y);
-//  Serial.print('\n');
-//  return CENTER;
   if(470 < x && x < 550 && y > 550)
   {
     return UP;
