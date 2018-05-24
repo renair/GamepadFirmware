@@ -41,7 +41,7 @@ JoystickDirection Joystick::getDirection()
   {
     return UP_RIGHT;
   }
-  if(y > 550 && y < 470)
+  if(x > 550 && y < 470)
   {
     return RIGHT_DOWN;
   }

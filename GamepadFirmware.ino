@@ -3,7 +3,7 @@
 const int JOYSTICK_X = 0;
 const int JOYSTICK_Y = 1;
 
-Joystick j1(JOYSTICK_X, JOYSTICK_X);
+Joystick j1(JOYSTICK_X, JOYSTICK_Y);
 JoystickDirection direct;
 
 void setup() {
