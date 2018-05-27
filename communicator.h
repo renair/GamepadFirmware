@@ -24,31 +24,31 @@
 
 class Communicator
 {
-private:
-  union
-  {
-    int16_t _value;
-    struct
+  private:
+    union
     {
-      byte _button1 : 1;
-      byte _button2 : 1;
-      byte _button3 : 1;
-      byte _button4 : 1;
-      byte _button5 : 1;
-      byte _button6 : 1;
-      byte _button7 : 1;
-      byte _button8 : 1;
-      byte _button9 : 1;
-      byte _button10 : 1;
-      byte _directionL : 3;
-      byte _directionR : 3;
-    } _bits;
-  } _state;
-  int16_t _previousState;
-public:
-  Communicator(int = 9600);
-  void readState(Joystick*, Joystick*);
-  void sendState();
+      int16_t _value;
+      struct
+      {
+        byte _button1 : 1;    // left trigger
+        byte _button2 : 1;    // right trigger
+        byte _button3 : 1;    // X button
+        byte _button4 : 1;    // A button
+        byte _button5 : 1;    // B button
+        byte _button6 : 1;    // Y button
+        byte _button7 : 1;    // left functional button
+        byte _button8 : 1;    // right functional button
+        byte _button9 : 1;    // left joystick button
+        byte _button10 : 1;   // right joystick button
+        byte _directionL : 3; // left joystick direction
+        byte _directionR : 3; // right joystick direction
+      } _bits;
+    } _state;
+    int16_t _previousState;
+  public:
+    Communicator(int = 9600);
+    void readState(Joystick*, Joystick*);
+    void sendState();
 };
 
 #endif //_COMMUNICATOR_H

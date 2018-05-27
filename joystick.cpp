@@ -5,45 +5,45 @@ Joystick::Joystick(byte v, byte h, byte b):
   _horizontal(h),
   _button(b)
 {
-  if(b > 0)
+  if (b > 0)
   {
     pinMode(b, INPUT_PULLUP);
   }
 }
 
-JoystickDirection Joystick::getDirection()
+byte Joystick::getDirection()
 {
   const int x = analogRead(_horizontal);
   const int y = analogRead(_vertical);
-  if(470 < x && x < 550 && y > 550)
+  if (470 < x && x < 550 && y > 550)
   {
     return UP;
   }
-  if(x > 550 && 400 < y && y < 650)
+  if (x > 550 && 400 < y && y < 650)
   {
     return RIGHT;
   }
-  if(x < 470 && 400 < y && y < 650)
+  if (x < 470 && 400 < y && y < 650)
   {
     return LEFT;
   }
-  if(470 < x && x < 550 && y < 470)
+  if (470 < x && x < 550 && y < 470)
   {
     return DOWN;
   }
-  if(x > 550 && y > 550)
+  if (x > 550 && y > 550)
   {
     return UP_RIGHT;
   }
-  if(x > 550 && y < 470)
+  if (x > 550 && y < 470)
   {
     return RIGHT_DOWN;
   }
-  if(x < 470 && y > 550)
+  if (x < 470 && y > 550)
   {
     return LEFT_UP;
   }
-  if(y < 470 && y < 470)
+  if (y < 470 && y < 470)
   {
     return DOWN_LEFT;
   }
