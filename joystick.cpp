@@ -18,16 +18,16 @@ byte Joystick::getDirection()
   const int y = analogRead(_vertical);
   byte direction(0);
   //horizontal direction
-  if (x > 510 + dead_zone_size){
-    direction += 1;
-  } else if(x < 510 - dead_zone_size){
-    direction += 2;
+  if (x > 512 + dead_zone_size){
+    direction |= RIGHT;
+  } else if(x < 512 - dead_zone_size){
+    direction |= LEFT;
   }
   //vertical direction
-  if (y > 510 + dead_zone_size){
-    direction += 3;
-  } else if(y < 510 - dead_zone_size){
-    direction += 6;
+  if (y > 512 + dead_zone_size){
+    direction |= UP;
+  } else if(y < 512 - dead_zone_size){
+    direction |= DOWN;
   }
   return direction;
 }
