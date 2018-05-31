@@ -13,41 +13,23 @@ Joystick::Joystick(byte v, byte h, byte b):
 
 byte Joystick::getDirection()
 {
+  byte dead_zone_size( 30 );
   const int x = analogRead(_horizontal);
   const int y = analogRead(_vertical);
-  if (470 < x && x < 550 && y > 550)
-  {
-    return UP;
+  byte direction(0);
+  //horizontal direction
+  if (x > 510 + dead_zone_size){
+    direction += 1;
+  } else if(x < 510 - dead_zone_size){
+    direction += 2;
   }
-  if (x > 550 && 400 < y && y < 650)
-  {
-    return RIGHT;
+  //vertical direction
+  if (y > 510 + dead_zone_size){
+    direction += 3;
+  } else if(y < 510 - dead_zone_size){
+    direction += 6;
   }
-  if (x < 470 && 400 < y && y < 650)
-  {
-    return LEFT;
-  }
-  if (470 < x && x < 550 && y < 470)
-  {
-    return DOWN;
-  }
-  if (x > 550 && y > 550)
-  {
-    return UP_RIGHT;
-  }
-  if (x > 550 && y < 470)
-  {
-    return RIGHT_DOWN;
-  }
-  if (x < 470 && y > 550)
-  {
-    return LEFT_UP;
-  }
-  if (y < 470 && y < 470)
-  {
-    return DOWN_LEFT;
-  }
-  return CENTER;
+  return direction;
 }
 
 bool Joystick::isButtonPressed()

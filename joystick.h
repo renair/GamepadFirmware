@@ -4,14 +4,14 @@
 #include <Arduino.h>
 
 const byte CENTER = 0;
-const byte UP = 1;
-const byte UP_RIGHT = 2;
-const byte RIGHT = 3;
-const byte RIGHT_DOWN = 4;
-const byte DOWN = 5;
-const byte DOWN_LEFT = 6;
-const byte LEFT = 7;
-const byte LEFT_UP = 8;
+const byte RIGHT = 1;
+const byte LEFT = 2;
+const byte UP = 3;
+const byte UP_RIGHT = 4;
+const byte UP_LEFT = 5;
+const byte DOWN = 6;
+const byte DOWN_RIGHT = 7;
+const byte DOWN_LEFT = 8;
 
 class Joystick {
   private:
