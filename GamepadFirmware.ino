@@ -1,21 +1,26 @@
 #include "joystick.h"
 #include "communicator.h"
+#include "initializators.h"
 
-#define SOFTWARE_PULLUP
-
-const int JOYSTICK_X = 0;
-const int JOYSTICK_Y = 1;
-
-Joystick j1(JOYSTICK_X, JOYSTICK_Y);
+//left joystick
+const int JOYSTICK1_X = 0;
+const int JOYSTICK1_Y = 1;
+//right joystick
+const int JOYSTICK2_X = 2;
+const int JOYSTICK2_Y = 3;
+                                                             
+Joystick leftJoy(JOYSTICK1_X, JOYSTICK1_Y);
+Joystick rightJoy(JOYSTICK2_X, JOYSTICK2_Y);
 Communicator comm;
 
 void setup()
 {
   Serial.begin(9600);
+  initPins();
 }
 
 void loop()
 {
-  comm.readState(&j1, &j1);
+  comm.readState(&leftJoy, &rightJoy);
   comm.sendState();
 }

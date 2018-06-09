@@ -1,4 +1,5 @@
 #include "initializators.h"
+#include "preferences.h"
 
 void initPins()
 {
@@ -14,5 +15,5 @@ void initPins()
 bool makeHandshake()
 {
   //TODO Implement handshake here
-  return true;1
+  return true;
 }

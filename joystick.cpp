@@ -20,19 +20,19 @@ byte Joystick::getDirection()
   //horizontal direction
   if (x > 512 + dead_zone_size)
   {
-    direction |= RIGHT;
+    direction |= LEFT;
   } 
   else if(x < 512 - dead_zone_size)
   {
-    direction |= LEFT;
+    direction |= RIGHT;
   }
   //vertical direction
   if (y > 512 + dead_zone_size)
   {
-    direction |= UP;
+    direction |= DOWN;
   } else if(y < 512 - dead_zone_size)
   {
-    direction |= DOWN;
+    direction |= UP;
   }
   return direction;
 }
