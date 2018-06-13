@@ -4,6 +4,6 @@
 #include <Arduino.h>
 
 void initPins();
-bool makeHandshake();
+bool makeHandshake(String greet_in);
 
 #endif //_INITIALIZATORS_H

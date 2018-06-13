@@ -12,8 +12,10 @@ void initPins()
   }
 }
 
-bool makeHandshake()
+bool makeHandshake(String greet_in)
 {
-  //TODO Implement handshake here
+  if(greet_in != "joi?")
+  return false;
+  Serial.write("yes)");
   return true;
 }

@@ -20,7 +20,7 @@
 //   10   |     Button 10
 // 11-14  |   Joystick Left
 // 15-18  |   Joystick Right
-// Protocol have 16 bit so int16_i is used for data transmission.
+// Protocol have 18 bit so int32_t is used for data transmission.
 
 class Communicator
 {
