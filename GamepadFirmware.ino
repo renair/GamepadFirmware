@@ -8,8 +8,6 @@ const int JOYSTICK1_Y = 1;
 //right joystick
 const int JOYSTICK2_X = 2;
 const int JOYSTICK2_Y = 3;
-
-bool connected = false;
                                                              
 Joystick leftJoy(JOYSTICK1_X, JOYSTICK1_Y);
 Joystick rightJoy(JOYSTICK2_X, JOYSTICK2_Y);
@@ -23,10 +21,12 @@ void setup()
 
 void loop()
 {
-  if (Serial.available() > 0) {
-    connected = makeHandshake(Serial.readString());
+  if (Serial.available() > 0)
+  {
+    makeHandshake();
   }
-  if(connected){
+  else
+  {
     comm.readState(&leftJoy, &rightJoy);
     comm.sendState();
   }

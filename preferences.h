@@ -1,1 +1,1 @@
-//#define SOFTWARE_PULLUP
+#define SOFTWARE_PULLUP
